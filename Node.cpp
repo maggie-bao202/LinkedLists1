@@ -1,21 +1,16 @@
 //NODE.CPP FILE
 #include "Node.h"
-Node :: Node(){
-  value = 0;
+#include <iostream>
+using namespace std;
+
+Node :: Node(Student* newstudent){
+  student = newstudent;
   next = NULL;
 }
 
 Node :: ~Node(){
-  delete &value;
+  delete student;
   next = NULL;
-}
-
-void Node :: setValue(int newValue){
-  value = newvalue;
-}
-
-int Node :: getValue(){
-  return value;
 }
 
 void Node :: setNext(Node* newnext){
@@ -25,3 +20,8 @@ void Node :: setNext(Node* newnext){
 Node* Node :: getNext(){
   return next;
 }
+
+Student* Node :: getStudent(){
+  return student;
+}
+
