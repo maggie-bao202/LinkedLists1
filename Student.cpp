@@ -33,7 +33,5 @@ float Student :: getGpa(){
 }
 
 void Student :: print(){
-  cout << "Name: " << fname << " " << endl;
-  cout << "ID: " << id << endl;
-  cout << "GPA: " << gpa << endl;
+  cout << fname << " " << lname << "," << id << "," << gpa << endl;
 }

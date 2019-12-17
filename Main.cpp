@@ -15,7 +15,8 @@ void remove(Node* &head, Node* node);
 //if null checks if there is anything in the memory
 
 int main() {
-  Node* head = NULL; 
+  Node* head = NULL;
+  char keyword[10];
     while (true){
     cout << "Type in a keyword (\"ADD\", \"PRINT\",\"DELETE\", or \"QUIT\")"<<endl;
     cin.get(keyword, 10); //put into array of 10. Extra char will be ignored
@@ -27,15 +28,15 @@ int main() {
       int id = 0;
       float gpa = 0;
       cout << "Enter First Name:" << endl;
-      cin.getline(fname, 40);
+      cin.getline(fname, 40, '\n');
       cout << "Enter Last Name:" << endl;
-      cin.getline(lname, 40);
+      cin.getline(lname, 40, '\n');
       cout << "Enter Student ID:"<< endl;
       cin >> id;
       cin.ignore();
       cout << "Enter GPA:"<< endl;
       cin >> gpa;
-      cin >> ignore();
+      cin.ignore();
       Student* current = new Student(fname, lname, id, gpa);
       add(head, head, current);
     }
