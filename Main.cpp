@@ -8,9 +8,9 @@
 
 using namespace std;
 //12/9/19 Maggie Bao This is a program of sadness.
-void add(Node &head, Node* node, Student* student);
+void add(Node* &head, Node* node, Student* student);
 void print(Node* node);
-void remove(Node* &head, Node* node);
+void remove(Node* &head, Node* node, int id);
 
 //if null checks if there is anything in the memory
 
@@ -39,15 +39,22 @@ int main() {
       cin.ignore();
       Student* current = new Student(fname, lname, id, gpa);
       add(head, head, current);
+      cout << "Student Added." << endl;
+      cout << endl;
     }
     else if (strcmp(keyword, "PRINT") == 0){
+      cout << "Student List:" << endl;
       print(head);
+      cout << endl;
     }
     else if (strcmp(keyword, "DELETE") == 0){
       int id = 0;
       cout << "Enter Student ID:" << endl;
       cin >> id;
       remove(head, head, id);
+      cin.clear();
+      cin.ignore(999, '\n');
+      cout << endl;
     }
     else if(strcmp(keyword, "QUIT") == 0){
       cout << "Have a nice day!" << endl;
@@ -80,7 +87,6 @@ void print(Node* node){
     return;
   }
   node->getStudent()->print();
-  cout << endl;
   print(node->getNext());
 }
 
@@ -90,12 +96,14 @@ void remove(Node* &head, Node* node, int id){
       Node* temp = head;
       head = head->getNext();
       delete temp;
+      cout << "Student Removed." << endl;
       return;
     }
   }
  if (node->getNext()->getStudent()->getId() == id) {
     node->setNext(node->getNext()->getNext());
     delete node->getNext();
+    cout << "Student Removed." << endl;
     return;
   }
   remove(head, node->getNext(), id);

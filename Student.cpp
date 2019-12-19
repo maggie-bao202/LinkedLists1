@@ -28,7 +28,7 @@ int Student :: getId(){
   return id;
 }
 
-float Student :: getGpa(){
+float Student :: getGPA(){
   return gpa;
 }
 

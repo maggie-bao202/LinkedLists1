@@ -1,17 +1,17 @@
-//NODE.H FILE
+//NODE HEADER FILE
 #include <iostream>
 #include "Student.h"
 
 using namespace std;
 
 class Node{
- public:
-  Node(Student* newstudent);
-  ~Node();
-  void setNext(Node* newnext);
+ public://functions of Node
+  Node(Student* newstudent);//Constructor
+  ~Node();//Destructor
+  void setNext(Node* newnext);//next node
   Node* getNext();
   Student* getStudent();
- private:
+ private://variables of Node
   Student* student;
   Node* next;
 };
