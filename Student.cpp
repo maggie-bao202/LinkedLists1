@@ -1,5 +1,6 @@
 //STUDENT.CPP FILE
 #include "Student.h"
+#include <iomanip>
 #include <iostream>
 
 using namespace std;
@@ -33,5 +34,5 @@ float Student :: getGPA(){
 }
 
 void Student :: print(){
-  cout << fname << " " << lname << "," << id << "," << gpa << endl;
+  cout << fname << " " << lname << ", " << id << ", " << fixed << setprecision(2) << gpa << endl;
 }

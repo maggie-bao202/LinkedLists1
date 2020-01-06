@@ -25,3 +25,6 @@ Student* Node :: getStudent(){
   return student;
 }
 
+void Node :: setStudent(Student*){
+  
+}

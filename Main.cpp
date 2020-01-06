@@ -26,17 +26,29 @@ int main() {
       char* fname = new char(40);
       char* lname = new char(40);
       int id = 0;
+      int iid = 0;
       float gpa = 0;
-      cout << "Enter First Name:" << endl;
+      float igpa = 0;
+      cout << "Enter First Name: ";
       cin.getline(fname, 40, '\n');
-      cout << "Enter Last Name:" << endl;
+      cout << "Enter Last Name: ";
       cin.getline(lname, 40, '\n');
-      cout << "Enter Student ID:"<< endl;
+      cout << "Enter Student ID: ";
+      cin >> iid;
+      while (iid > 999999 || iid < 100000){
+	cout << "Enter a 6 digit number." << endl;
+	cout << "Enter Student ID: ";
+	cin >> iid;
+      }
       cin >> id;
-      cin.ignore();
-      cout << "Enter GPA:"<< endl;
+      cout << "Enter GPA: ";
+      cin >> igpa;
+      while (igpa > 5.0 || igpa < 0.0){
+	cout << "GPA cannot exceed a 5.00, and cannot be 0.00." << endl;
+	cout << "Enter GPA: ";
+	cin >> igpa;
+      }
       cin >> gpa;
-      cin.ignore();
       Student* current = new Student(fname, lname, id, gpa);
       add(head, head, current);
       cout << "Student Added." << endl;
@@ -107,4 +119,5 @@ void remove(Node* &head, Node* node, int id){
     return;
   }
   remove(head, node->getNext(), id);
+  return;
 }
