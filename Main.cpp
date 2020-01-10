@@ -26,29 +26,29 @@ int main() {
       char* fname = new char(40);
       char* lname = new char(40);
       int id = 0;
-      int iid = 0;
       float gpa = 0;
-      float igpa = 0;
       cout << "Enter First Name: ";
       cin.getline(fname, 40, '\n');
       cout << "Enter Last Name: ";
       cin.getline(lname, 40, '\n');
       cout << "Enter Student ID: ";
-      cin >> iid;
-      while (iid > 999999 || iid < 100000){
+      cin >> id;
+      while (id > 999999 || id < 100000){
 	cout << "Enter a 6 digit number." << endl;
 	cout << "Enter Student ID: ";
-	cin >> iid;
+	cin >> id;
+	cin.clear();
+	cin.ignore(9999, '\n');
       }
-      cin >> id;
       cout << "Enter GPA: ";
-      cin >> igpa;
-      while (igpa > 5.0 || igpa < 0.0){
+      cin >> gpa;
+      while (gpa > 5.0 || gpa < 0.0){
 	cout << "GPA cannot exceed a 5.00, and cannot be 0.00." << endl;
 	cout << "Enter GPA: ";
-	cin >> igpa;
+	cin >> gpa;
+	cin.clear();
+	cin.ignore(9999, '\n');
       }
-      cin >> gpa;
       Student* current = new Student(fname, lname, id, gpa);
       add(head, head, current);
       cout << "Student Added." << endl;
@@ -76,6 +76,8 @@ int main() {
     else{
       cout << "Make sure the keyword is capitalized." << endl;
     }
+    cin.clear();//debugging to make header not print twice
+    cin.ignore(9999,'\n');
   }
   return 0;
 }
@@ -112,12 +114,20 @@ void remove(Node* &head, Node* node, int id){
       return;
     }
   }
+  if (!(node->getStudent()->getId()) == id){
+    cout << "Invalid ID." << endl;
+    return;
+ }
  if (node->getNext()->getStudent()->getId() == id) {
     node->setNext(node->getNext()->getNext());
     delete node->getNext();
     cout << "Student Removed." << endl;
     return;
   }
+ if (!(node->getNext()->getStudent()->getId()) == id){
+   cout << "Invalid ID." << endl;
+   return;
+ }
   remove(head, node->getNext(), id);
   return;
 }
