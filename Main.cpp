@@ -135,6 +135,10 @@ void print(Node* node){//print the linked list out
 }
 
 void remove(Node* &head, Node* node, int id){//removes the student with matching id
+  if (head == NULL){
+    cout << "Empty List." << endl;
+    return;
+  }
   if (node->getStudent()->getId() == id){//if matching node is first node in list
     if (node == head) {
       Node* temp = head;
