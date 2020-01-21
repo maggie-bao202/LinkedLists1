@@ -7,7 +7,9 @@
 #include <iomanip>
 
 using namespace std;
-//1/20/19 Author: Maggie Bao Description: Linked Lists (Part 2) prompts the user to enter a keyword. Typing "ADD" will prompt the user to enter the student information. "PRINT" shows the students that are in the list. "AVERAGE" takes the average of all the student's GPAs. "DELETE" prompts the user for a student id, then searches the list for the student GPA that matches. "QUIT" will terminate the program.
+//Note: Devin's node.o file wasn't working, so I wrote my own Node.cpp file using his node.h file and converted to Node.o, and worked with that instead of his.
+
+//1/20/20 Author: Maggie Bao Description: Linked Lists (Part 2) prompts the user to enter a keyword. Typing "ADD" will prompt the user to enter the student information. "PRINT" shows the students that are in the list. "AVERAGE" takes the average of all the student's GPAs. "DELETE" prompts the user for a student id, then searches the list for the student GPA that matches. "QUIT" will terminate the program.
 void add(Node* &head, Node* node, Student* student);
 void print(Node* node);
 void remove(Node* &head, Node* node, int id);
@@ -21,8 +23,8 @@ int main() {
     cout << "Type in a keyword (\"ADD\", \"PRINT\",\"DELETE\", \"AVERAGE\", or \"QUIT\")"<<endl;
     cin.getline(keyword, 10, '\n'); //put into array of 10. Extra char will be ignored
     if (strcmp(keyword, "ADD") == 0){//if keyword char pointer matches with str
-      char* fname = new char(40);
-      char* lname = new char(40);
+      char* fname = new char[40];
+      char* lname = new char[40];
       int id = 0;
       float gpa = 0;
       cout << "Enter First Name: ";
