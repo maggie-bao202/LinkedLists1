@@ -5,18 +5,19 @@
 
 using namespace std;
 
-Student :: Student(char* newfname, char* newlname, int newid, float newgpa){
+Student :: Student(char* newfname, char* newlname, int newid, float newgpa){//constructor, need to pass through student's data
   fname = newfname;
   lname = newlname;
   id = newid;
   gpa = newgpa;
 }
 
-Student :: ~Student(){
+Student :: ~Student(){//destructor
   delete fname;
   delete lname;
 }
 
+//getters
 char* Student :: getFname(){
   return fname;
 }
@@ -33,6 +34,6 @@ float Student :: getGPA(){
   return gpa;
 }
 
-void Student :: print(){
+void Student :: print(){//print out the student information 
   cout << fname << " " << lname << ", " << id << ", " << fixed << setprecision(2) << gpa << endl;
 }
